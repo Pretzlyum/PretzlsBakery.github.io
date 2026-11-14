@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name 🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --bg: #fdf6ff;
+  --pink: #ffc8dd;
+  --pink-dark: #f7a8c8;
+  --lilac: #d9c2ee;
+  --sky: #cfe6ff;
+  --mint: #d3f2e0;
+  --cream: #e6f1ff;
+  --sponge: #ffe9dc;
+  --berry: #e06fa0;
+  --choc: #7a5c8a;
+  --text: #6b5876;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background:
+    radial-gradient(circle, #f3e4fb 3px, transparent 4px) 0 0 / 34px 34px,
+    var(--bg);
+  color: var(--text);
+  font-family: "Nunito", sans-serif;
+  line-height: 1.6;
+  text-align: center;
+  padding: 40px 16px 60px;
+}
+
+h1, h2 { font-family: "Pacifico", cursive; font-weight: 400; color: var(--berry); }
+
+/* ---------- NAV ---------- */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+nav a {
+  color: var(--choc);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--pink);
+  transition: transform .15s;
+}
+nav a:hover, nav a.active { background: var(--pink); color: #fff; transform: translateY(-2px); }
+
+/* ---------- THE CAKE ---------- */
+.cake {
+  width: min(380px, 100%);
+  margin: 0 auto 50px;
+  position: relative;
+}
+
+.candles {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  height: 70px;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -4px;
+}
+.candle {
+  width: 12px;
+  height: 38px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #fff 0 6px, #ff9ec0 6px 12px);
+  position: relative;
+}
+.flame {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 12px;
+  height: 18px;
+  margin-left: -6px;
+  background: radial-gradient(circle at 50% 70%, #fff6a8, #ffb347 70%);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  transform-origin: 50% 100%;
+  animation: flicker 1.2s ease-in-out infinite alternate;
+}
+.candle:nth-child(2) .flame { animation-delay: .3s; }
+.candle:nth-child(3) .flame { animation-delay: .6s; }
+@keyframes flicker {
+  from { transform: scale(1) rotate(-4deg); }
+  to   { transform: scale(1.12, 0.92) rotate(4deg); }
+}
+
+.tier {
+  margin: 0 auto;
+  position: relative;
+  background: var(--sponge);
+  border-radius: 14px 14px 18px 18px;
+  padding: 44px 12px 16px;
+  box-shadow: inset 0 -8px 0 rgba(0,0,0,.05);
+}
+.tier .frosting {
+  position: absolute;
+  top: 0; left: -4px; right: -4px;
+  height: 30px;
+  background: var(--pink);
+  border-radius: 18px 18px 6px 6px;
+}
+.tier .frosting::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  height: 24px;
+  background: radial-gradient(circle at 20px 0, var(--pink) 14px, transparent 15px) 0 0 / 40px 24px repeat-x;
+}
+
+.tier.top    { width: 55%; }
+.tier.middle { width: 78%; margin-top: 4px; background: var(--cream); }
+.tier.bottom { width: 100%; margin-top: 4px; }
+
+.tier.top h1 { font-size: 1.5rem; line-height: 1.2; position: relative; z-index: 1; }
+.tier .label { position: relative; z-index: 1; font-weight: 700; color: var(--choc); }
+
+.cherry {
+  width: 22px; height: 22px;
+  background: radial-gradient(circle at 35% 35%, #ff7a96, var(--berry));
+  border-radius: 50%;
+  position: absolute;
+  top: -8px; left: 14%;
+  z-index: 3;
+}
+.cherry::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(690% - 22px);
+  width: 22px; height: 22px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+/* ---------- PIANO DETAILS ---------- */
+.keyboard {
+  display: flex;
+  width: 112%;
+  margin: 6px -6% 0;
+  height: 74px;
+  background: #fff;
+  border: 2px solid #eadff3;
+  border-radius: 6px 6px 18px 18px;
+  box-shadow: 0 6px 0 #e3d3f1;
+  position: relative;
+}
+.keyboard .w {
+  flex: 1;
+  position: relative;
+  border-right: 2px solid #eadff3;
+}
+.keyboard .w:last-child { border-right: none; }
+.keyboard .b {
+  position: absolute;
+  top: -2px;
+  right: -9px;
+  width: 18px;
+  height: 58%;
+  background: linear-gradient(#e0cdf0, #c3a8dc);
+  border-radius: 0 0 6px 6px;
+  z-index: 2;
+}
+.keyboard.mini {
+  width: min(320px, 100%);
+  margin: 30px auto 14px;
+  height: 44px;
+}
+
+/* floating music notes */
+.notes span {
+  position: absolute;
+  font-size: 1.7rem;
+  pointer-events: none;
+  animation: bob 3.4s ease-in-out infinite;
+}
+.notes span:nth-child(1) { left: -22px; top: 60px;  color: var(--lilac); }
+.notes span:nth-child(2) { right: -18px; top: 110px; color: var(--pink-dark); animation-delay: .8s; }
+.notes span:nth-child(3) { left: -8px; top: 250px; color: #9fcbf5; animation-delay: 1.4s; }
+.notes span:nth-child(4) { right: -14px; top: 300px; color: #9ed9b8; animation-delay: 2s; }
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50%      { transform: translateY(-12px) rotate(8deg); }
+}
+
+section h2::before { content: "♪ "; color: var(--lilac); }
+section h2::after  { content: " ♫"; color: var(--pink-dark); }
+
+.tagline { margin-top: 24px; font-size: 1.1rem; }
+
+/* ---------- CONTENT ---------- */
+main { max-width: 680px; margin: 0 auto; }
+
+section {
+  background: #fff;
+  border: 3px dashed var(--pink);
+  border-radius: 24px;
+  padding: 28px 24px;
+  margin-bottom: 28px;
+}
+section h2 { font-size: 1.7rem; margin-bottom: 10px; }
+
+.projects { display: grid; gap: 14px; margin-top: 12px; text-align: left; }
+.project {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 14px 18px;
+  border-left: 8px solid var(--pink-dark);
+}
+.project h3 { color: var(--choc); font-size: 1.05rem; }
+.project a { color: var(--berry); font-weight: 700; text-decoration: none; }
+.project a:hover { text-decoration: underline; }
+
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 12px; }
+.links a {
+  background: var(--pink);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 999px;
+  box-shadow: 0 4px 0 var(--pink-dark);
+  transition: transform .15s;
+}
+.links a:hover { transform: translateY(-3px) rotate(-2deg); }
+
+footer { font-size: .9rem; opacity: .8; margin-top: 10px; }
+
+/* ---------- PROJECTS PAGE ---------- */
+.page-title { font-size: 2.4rem; margin-bottom: 6px; }
+.page-sub { margin-bottom: 30px; }
+
+/* art gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+.art {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 10px 10px 12px;
+  box-shadow: 0 4px 0 var(--pink);
+  transition: transform .15s;
+}
+.art:hover { transform: rotate(-1.5deg) translateY(-3px); }
+.art img, .art .placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.art .placeholder {
+  background: repeating-linear-gradient(45deg, #ffe3ec 0 12px, #fff0f4 12px 24px);
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+.art figcaption { margin-top: 8px; font-size: .95rem; color: var(--choc); font-weight: 700; }
+
+/* book archive */
+.books { display: grid; gap: 12px; margin-top: 14px; text-align: left; }
+.book {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+.spine {
+  width: 14px;
+  align-self: stretch;
+  min-height: 48px;
+  border-radius: 4px;
+  background: var(--pink-dark);
+  flex-shrink: 0;
+}
+.book:nth-child(3n+2) .spine { background: #ffcf8a; }
+.book:nth-child(3n+3) .spine { background: #b9e3c6; }
+.book h3 { font-size: 1.05rem; color: var(--choc); }
+.book .author { font-size: .9rem; opacity: .85; }
+.book .stars { margin-left: auto; color: var(--berry); white-space: nowrap; }
+
+/* ---------- MY OWN BOOK ---------- */
+.my-book {
+  background: linear-gradient(135deg, #fff0f6, #f1e8ff);
+  border: 3px solid var(--lilac);
+  border-radius: 20px;
+  padding: 22px 20px;
+  margin: 16px 0 26px;
+  text-align: left;
+  position: relative;
+}
+.badge {
+  display: inline-block;
+  background: var(--lilac);
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
+  padding: 3px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.my-book-top { display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+.cover {
+  width: 110px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 6px 14px 14px 6px;
+  background: linear-gradient(135deg, var(--pink), var(--lilac));
+  border-left: 10px solid var(--pink-dark);
+  box-shadow: 4px 6px 0 #e3d3f1;
+  display: grid;
+  place-items: center;
+  font-size: 2.4rem;
+}
+.my-book-info { flex: 1; min-width: 200px; }
+.my-book-info h3 { font-family: "Pacifico", cursive; font-weight: 400; color: var(--berry); font-size: 1.4rem; }
+.my-book-info .meta { font-size: .9rem; opacity: .85; margin-bottom: 8px; }
+.my-book-info .summary { margin-bottom: 12px; }
+.read-btn {
+  display: inline-block;
+  background: var(--berry);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 999px;
+  box-shadow: 0 4px 0 #c75a89;
+  transition: transform .15s;
+}
+.read-btn:hover { transform: translateY(-3px) rotate(-2deg); }
+
+.chapters-title { color: var(--choc); margin: 18px 0 8px; }
+.chapters { list-style: none; display: grid; gap: 8px; }
+.chapters a {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  background: #fff;
+  border-radius: 12px;
+  padding: 9px 14px;
+  text-decoration: none;
+  color: var(--text);
+  border-left: 6px solid var(--pink-dark);
+  transition: transform .15s;
+}
+.chapters a:hover { transform: translateX(4px); }
+.chapters span { font-weight: 700; color: var(--berry); white-space: nowrap; }
+.chapters em { font-style: normal; }
+
+.doc-embed {
+  width: 100%;
+  height: 420px;
+  margin-top: 16px;
+  border: 3px dashed var(--pink);
+  border-radius: 14px;
+  background: #fff;
+}
+.shelf-title { color: var(--choc); font-size: 1.1rem; margin-top: 6px; text-align: left; }
+
+/* ================================================
+   HANDMADE LAYER: wobbly, taped, scrapbook-y
+   ================================================ */
+body {
+  font-family: "Patrick Hand", "Comic Sans MS", cursive;
+  font-size: 1.15rem;
+}
+h1, h2, .tier.top h1, .my-book-info h3 {
+  font-family: "Caveat", "Segoe Print", cursive;
+  font-weight: 700;
+}
+
+/* wobbly little nav buttons */
+nav a {
+  border-radius: 18px 10px 20px 8px / 10px 18px 8px 20px;
+  border-width: 2.5px;
+  font-family: "Caveat", cursive;
+  font-size: 1.3rem;
+  box-shadow: 3px 3px 0 var(--pink);
+}
+nav a:nth-child(odd)  { transform: rotate(-2deg); }
+nav a:nth-child(even) { transform: rotate(1.5deg); }
+
+/* slightly crooked cake */
+.tier.top    { transform: rotate(-1.6deg); }
+.tier.middle { transform: rotate(1deg); }
+.tier.bottom { transform: rotate(-.7deg); }
+.tier.top h1 { font-size: 2rem; line-height: 1; }
+.tier .label { font-family: "Caveat", cursive; font-size: 1.3rem; }
+.tier .frosting { border-radius: 20px 14px 6px 8px; }
+/* uneven drips: small ones + a few long ones */
+.tier .frosting::after {
+  height: 36px;
+  background:
+    radial-gradient(circle at 20px 0, var(--pink) 14px, transparent 15px) 0 0 / 40px 24px repeat-x,
+    radial-gradient(ellipse 8px 17px at 8px 0, var(--pink) 98%, transparent 100%) 0 0 / 97px 36px repeat-x;
+}
+.keyboard { transform: rotate(-1deg); }
+.keyboard.mini { transform: rotate(1.2deg); }
+
+.tagline {
+  font-family: "Caveat", cursive;
+  font-size: 1.9rem;
+  transform: rotate(-1.5deg);
+}
+.scribble {
+  font-family: "Caveat", cursive;
+  font-size: 1.3rem;
+  color: var(--choc);
+  opacity: .8;
+  transform: rotate(1.2deg);
+  margin-top: 4px;
+}
+
+/* cards: wobbly outlines, hard shadow, washi tape */
+section {
+  position: relative;
+  border: 3px solid var(--pink-dark);
+  border-radius: 30px 12px 28px 14px / 14px 26px 12px 30px;
+  box-shadow: 6px 7px 0 var(--pink);
+  margin-bottom: 40px;
+}
+section:nth-of-type(odd)  { transform: rotate(-.6deg); }
+section:nth-of-type(even) { transform: rotate(.5deg); }
+section::before {
+  content: "";
+  position: absolute;
+  top: -15px; left: 50%;
+  width: 96px; height: 28px;
+  margin-left: -48px;
+  background: repeating-linear-gradient(45deg, rgba(255,200,221,.85) 0 8px, rgba(255,255,255,.7) 8px 16px);
+  transform: rotate(-3deg);
+  box-shadow: 0 1px 3px rgba(120,90,140,.2);
+}
+section:nth-of-type(2)::before { background: repeating-linear-gradient(-45deg, rgba(217,194,238,.9) 0 8px, rgba(255,255,255,.7) 8px 16px); transform: rotate(2.5deg); }
+section:nth-of-type(3)::before { background: repeating-linear-gradient(45deg, rgba(211,242,224,.95) 0 8px, rgba(255,255,255,.7) 8px 16px); transform: rotate(-1.5deg); }
+section h2 {
+  font-size: 2.3rem;
+  line-height: 1.1;
+  text-decoration: underline wavy var(--pink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+section h2::before, section h2::after { text-decoration: none; display: inline-block; }
+
+.project { border-radius: 8px 18px 10px 16px; transform: rotate(-.4deg); }
+.project:nth-child(even) { transform: rotate(.5deg); }
+.project h3, .book h3 { font-family: "Caveat", cursive; font-size: 1.5rem; line-height: 1.1; }
+
+.links a {
+  font-family: "Caveat", cursive;
+  font-size: 1.4rem;
+  border-radius: 22px 10px 24px 10px / 10px 22px 10px 24px;
+  box-shadow: 3px 4px 0 var(--pink-dark);
+}
+.links a:nth-child(odd)  { transform: rotate(-2deg); }
+.links a:nth-child(even) { transform: rotate(2deg); }
+
+/* projects page */
+.page-title {
+  font-size: 3.6rem;
+  line-height: 1;
+  transform: rotate(-1.5deg);
+  text-decoration: underline wavy var(--pink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+.page-sub { font-family: "Caveat", cursive; font-size: 1.6rem; }
+
+/* art = taped polaroids */
+.gallery { gap: 26px 20px; padding-top: 8px; }
+.art {
+  position: relative;
+  background: #fff;
+  padding: 10px 10px 8px;
+  border-radius: 3px;
+  box-shadow: 0 3px 10px rgba(120,90,140,.22);
+}
+.art:nth-child(odd)  { transform: rotate(-2.4deg); }
+.art:nth-child(even) { transform: rotate(1.8deg); }
+.art:nth-child(3n)   { transform: rotate(-.8deg); }
+.art:hover { transform: rotate(0) scale(1.04); }
+.art::before {
+  content: "";
+  position: absolute;
+  top: -12px; left: 50%;
+  width: 54px; height: 20px;
+  margin-left: -27px;
+  background: rgba(255,226,170,.85);
+  transform: rotate(-4deg);
+}
+.art:nth-child(even)::before { background: rgba(207,230,255,.9); transform: rotate(3deg); }
+.art img, .art .placeholder { border-radius: 2px; }
+.art figcaption { font-family: "Caveat", cursive; font-size: 1.4rem; margin-top: 6px; }
+
+/* books = index cards */
+.book {
+  background: #fffdf6;
+  border: 2px solid #eadff3;
+  border-radius: 6px 14px 8px 12px;
+  box-shadow: 2px 3px 0 #eadff3;
+}
+.book:nth-child(odd)  { transform: rotate(-.6deg); }
+.book:nth-child(even) { transform: rotate(.5deg); }
+.book .stars { font-size: 1.1rem; }
+
+/* my own book = sticky, taped, crooked */
+.my-book {
+  transform: rotate(.5deg);
+  border-radius: 14px 26px 12px 24px / 24px 12px 26px 14px;
+  box-shadow: 5px 6px 0 var(--lilac);
+}
+.my-book::before {
+  content: "";
+  position: absolute;
+  top: -13px; right: 40px;
+  width: 80px; height: 24px;
+  background: repeating-linear-gradient(45deg, rgba(255,226,170,.9) 0 8px, rgba(255,255,255,.7) 8px 16px);
+  transform: rotate(4deg);
+}
+.badge { font-family: "Caveat", cursive; font-size: 1.2rem; transform: rotate(-3deg); }
+.my-book-info h3 { font-size: 2rem; }
+.read-btn {
+  font-family: "Caveat", cursive;
+  font-size: 1.4rem;
+  border-radius: 20px 8px 22px 8px / 8px 20px 8px 22px;
+}
+.chapters a { border-radius: 4px 12px 6px 10px; }
+.chapters a:nth-child(even) { transform: rotate(.4deg); }
+.chapters span { font-family: "Caveat", cursive; font-size: 1.3rem; }
+.shelf-title { font-family: "Caveat", cursive; font-size: 1.8rem; transform: rotate(-1deg); }
+
+footer { font-family: "Caveat", cursive; font-size: 1.3rem; }
+
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 20px; }
+  </style>
+</head>
+<body id="top">
+
+  <nav>
+    <a href="#top">Home</a>
+    <a href="#art">My Art</a>
+    <a href="#books">My Books</a>
+    <a href="archive.html">Fic Archive</a>
+    <a href="#contact">Say Hi</a>
+  </nav>
+
+  <!-- the cake -->
+  <div class="cake" aria-label="A cute cake">
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
+
+    <div class="tier top">
+      <div class="cherry"></div>
+      <div class="frosting"></div>
+      <h1>Hi, I'm Your Name!</h1>
+    </div>
+
+    <div class="tier middle">
+      <div class="frosting"></div>
+      <p class="label">welcome to my little bakery</p>
+    </div>
+
+    <div class="tier bottom">
+      <div class="frosting"></div>
+      <p class="label">made with love &amp; a little code</p>
+    </div>
+
+    <!-- piano keyboard base -->
+    <div class="keyboard" aria-hidden="true">
+      <div class="w"><span class="b"></span></div>
+      <div class="w"><span class="b"></span></div>
+      <div class="w"></div>
+      <div class="w"><span class="b"></span></div>
+      <div class="w"><span class="b"></span></div>
+      <div class="w"><span class="b"></span></div>
+      <div class="w"></div>
+      <div class="w"></div>
+    </div>
+
+    <div class="notes" aria-hidden="true">
+      <span>♪</span><span>♫</span><span>♩</span><span>♬</span>
+    </div>
+  </div>
+
+  <p class="tagline">🍰 a sweet little corner of the internet 🍰</p>
+  <p class="scribble">psst... yes, it's a cake. yes, it's also a piano. ♪</p>
+
+  <main style="margin-top: 36px;">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Write a couple of sentences about yourself here: what you're into,
+        what you're learning, and what makes you smile. Keep it short and sweet!
+      </p>
+    </section>
+
+    <!-- ========== ART ========== -->
+    <section id="art">
+      <h2>🎨 My Art</h2>
+      <p>Click around my little gallery!</p>
+
+      <div class="gallery">
+        <!--
+          HOW TO ADD YOUR ART:
+          1. Make a folder called "images" in your repo and upload your pictures.
+          2. Replace a placeholder with:  <img src="images/your-file.jpg" alt="describe it" />
+          3. Copy a whole <figure class="art"> block to add more pieces.
+        -->
+        <figure class="art">
+          <div class="placeholder">🖼️</div>
+          <figcaption>Artwork title</figcaption>
+        </figure>
+        <figure class="art">
+          <div class="placeholder">🖼️</div>
+          <figcaption>Artwork title</figcaption>
+        </figure>
+        <figure class="art">
+          <div class="placeholder">🖼️</div>
+          <figcaption>Artwork title</figcaption>
+        </figure>
+        <figure class="art">
+          <div class="placeholder">🖼️</div>
+          <figcaption>Artwork title</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== BOOK ARCHIVE ========== -->
+    <section id="books">
+      <h2>📚 My Book Archive</h2>
+      <p>My own book, plus everything I've read.</p>
+
+      <!-- ===== MY OWN BOOK (written in Google Docs) ===== -->
+      <div class="my-book">
+        <span class="badge">✍️ Currently writing</span>
+        <div class="my-book-top">
+          <div class="cover">📖</div>
+          <div class="my-book-info">
+            <h3>Your Book Title</h3>
+            <p class="meta">Genre · Chapter 3 in progress</p>
+            <p class="summary">
+              Write a short teaser here: what your story is about,
+              who it follows, and why you love it.
+            </p>
+            <!--
+              Replace the link below with your Google Doc link.
+              In Google Docs: Share → General access → "Anyone with the link" → Viewer → Copy link.
+            -->
+            <a class="read-btn" href="https://docs.google.com/document/d/YOUR-DOC-ID/edit" target="_blank" rel="noopener">Read it on Google Docs →</a>
+          </div>
+        </div>
+
+        <h4 class="chapters-title">Chapters</h4>
+        <ul class="chapters">
+          <!-- One <li> per chapter. If each chapter is its own Google Doc, link each one.
+               If your whole book is one doc, link them all to the same doc. -->
+          <li><a href="https://docs.google.com/document/d/YOUR-DOC-ID/edit" target="_blank" rel="noopener"><span>Chapter 1</span> <em>Chapter title</em></a></li>
+          <li><a href="https://docs.google.com/document/d/YOUR-DOC-ID/edit" target="_blank" rel="noopener"><span>Chapter 2</span> <em>Chapter title</em></a></li>
+          <li><a href="https://docs.google.com/document/d/YOUR-DOC-ID/edit" target="_blank" rel="noopener"><span>Chapter 3</span> <em>Chapter title</em></a></li>
+        </ul>
+
+        <!--
+          OPTIONAL: show the book right on the page.
+          In Google Docs: File → Share → Publish to web → Embed → Publish, then copy the link
+          from the iframe code and paste it as the src below. Remove the comment markers to turn it on.
+
+        <iframe class="doc-embed"
+          src="https://docs.google.com/document/d/e/YOUR-PUBLISHED-ID/pub?embedded=true"
+          title="My book"></iframe>
+        -->
+      </div>
+
+      <h3 class="shelf-title">📚 Books I've Read</h3>
+
+      <div class="books">
+        <!-- Copy a <div class="book"> block for each new book. -->
+        <div class="book">
+          <div class="spine"></div>
+          <div>
+            <h3>Book Title One</h3>
+            <p class="author">by Author Name</p>
+          </div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <div class="book">
+          <div class="spine"></div>
+          <div>
+            <h3>Book Title Two</h3>
+            <p class="author">by Author Name</p>
+          </div>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="book">
+          <div class="spine"></div>
+          <div>
+            <h3>Book Title Three</h3>
+            <p class="author">by Author Name</p>
+          </div>
+          <div class="stars">★★★☆☆</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="archive">
+      <h2>📖 Fic Archive</h2>
+      <p>A cozy little library of fanfiction. Come read a story, or send in your own!</p>
+      <div class="links">
+        <a href="archive.html">Open the archive →</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Say Hi</h2>
+      <p>Come grab a slice and chat!</p>
+      <div class="links">
+        <a href="https://github.com/your-username">GitHub</a>
+        <a href="mailto:you@example.com">Email</a>
+        <a href="https://www.pinterest.com/your-username">Pinterest</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="keyboard mini" aria-hidden="true">
+    <div class="w"><span class="b"></span></div>
+    <div class="w"><span class="b"></span></div>
+    <div class="w"></div>
+    <div class="w"><span class="b"></span></div>
+    <div class="w"><span class="b"></span></div>
+    <div class="w"><span class="b"></span></div>
+    <div class="w"></div>
+    <div class="w"></div>
+  </div>
+
+  <footer>made by hand (and lots of snacks) 🍓 Your Name</footer>
+
+</body>
+</html>
